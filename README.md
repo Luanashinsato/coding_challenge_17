@@ -1,0 +1,2 @@
+# Coding Challenge 17
+Implementing a set of classes to represent customers, sales reps, and VIP customers. This challenge will assess my ability to use object-oriented programming principles including inheritance, method overriding, and array manipulation.
