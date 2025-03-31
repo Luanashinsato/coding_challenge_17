@@ -21,3 +21,32 @@ customer1.addPurchase(50);
 customer1.addPurchase(30);
 console.log(`New customer created - Name: ${customer1.name}, Email: ${customer1.email}`); // Logging new customer creation
 console.log(`Total spent by ${customer1.name} - $${customer1.getTotalSpent()}`); // Logging total spent after purchases
+
+
+
+// Task 2: Creating a SalesRep Class 
+class SalesRep {
+    constructor(name) {
+        this.name = name; // Assigning a sales representative name 
+        this.clients = []; // Assigning clients to sales representative 
+    }
+    
+    // Adding a method that adds a customer to the list
+    addClient(customer) {
+        this.clients.push(customer);
+    }
+    
+    // Adding a method that finds a client by name and returns total spent
+    getClientTotal(name) {
+        const client = this.clients.find(client => client.name === name);
+        return client ? client.getTotalSpent() : 0;
+    }
+}
+
+// Example usage
+const salesRep = new SalesRep("Sebastian Bravo");
+const customer2 = new Customer("Sara Smith", "sarasmith@gmail.com");
+salesRep.addClient(customer1);
+salesRep.addClient(customer2);
+console.log(`Sales Representative ${salesRep.name} has clients:`, salesRep.clients.map(client => client.name)); // Logging sales rep’s clients
+console.log(`Total spent by ${customer2.name} - $${salesRep.getClientTotal("Sara Smith")}`); // Logging total spent for a specific client
